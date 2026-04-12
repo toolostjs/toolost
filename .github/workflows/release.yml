@@ -4,13 +4,24 @@ on:
   release:
     types:
       - published
+  workflow_dispatch:
+    inputs:
+      release_tag:
+        description: Release tag to publish (e.g. v1.2.3)
+        required: true
+        type: string
+      prerelease:
+        description: Publish with the dev npm dist-tag
+        required: false
+        default: false
+        type: boolean
 
 permissions:
   contents: read
   id-token: write
 
 concurrency:
-  group: release-${{ github.event.release.tag_name }}
+  group: release-${{ github.event.release.tag_name || github.event.inputs.release_tag || github.run_id }}
   cancel-in-progress: false
 
 jobs:
@@ -36,7 +47,7 @@ jobs:
           registry-url: https://registry.npmjs.org
 
       - name: Update npm to latest
-        run: npm install -g npm@latest
+        run: npm install -g npm@11.6.0
 
       - name: Install dependencies
         run: pnpm install --no-frozen-lockfile
@@ -49,7 +60,7 @@ jobs:
 
       - name: Validate release tag matches package version
         env:
-          RELEASE_TAG: ${{ github.event.release.tag_name }}
+          RELEASE_TAG: ${{ github.event.release.tag_name || github.event.inputs.release_tag }}
         run: |
           PACKAGE_VERSION="$(node -p "require('./package.json').version")"
           NORMALIZED_TAG="${RELEASE_TAG#v}"
@@ -62,7 +73,7 @@ jobs:
       - name: Determine npm dist-tag
         id: dist_tag
         env:
-          IS_PRERELEASE: ${{ github.event.release.prerelease }}
+          IS_PRERELEASE: ${{ github.event.release.prerelease || github.event.inputs.prerelease }}
         run: |
           if [ "$IS_PRERELEASE" = "true" ]; then
             echo "tag=dev" >> "$GITHUB_OUTPUT"
