@@ -28,6 +28,7 @@
     "README.md"
   ],
   "license": "MIT",
+  "homepage": "https://toolost.js.org",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/toolostjs/toolost.git"

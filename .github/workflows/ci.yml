@@ -13,8 +13,76 @@ permissions:
   contents: read
 
 jobs:
+  style:
+    name: Style Gate (Prettier)
+    runs-on: ubuntu-latest
+    environment: ci
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+          ref: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.ref || github.ref_name }}
+          repository: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name || github.repository }}
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v5
+        with:
+          version: 10
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 22.x
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --no-frozen-lockfile
+
+      - name: Run global lint and auto-fix when needed
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          if pnpm -w run lint; then
+            echo "Lint passed."
+            exit 0
+          fi
+
+          echo "Lint failed. Running Prettier auto-fix..."
+          pnpm -w run format
+
+          if git diff --quiet; then
+            echo "::error::Lint failed but no files were changed by formatter."
+            exit 1
+          fi
+
+          if [ "${{ github.event_name }}" = "pull_request" ] && [ "${{ github.event.pull_request.head.repo.full_name }}" != "${{ github.repository }}" ]; then
+            echo "::error::Cannot push style fixes to forked pull-request branches with GITHUB_TOKEN."
+            echo "Run 'pnpm -w run format' locally and push the changes to the PR branch."
+            exit 1
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "style: apply prettier formatting"
+
+          TARGET_BRANCH="${{ github.ref_name }}"
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            TARGET_BRANCH="${{ github.event.pull_request.head.ref }}"
+          fi
+
+          git push origin "HEAD:${TARGET_BRANCH}"
+          pnpm -w run lint
+
   quality:
     name: Quality (Node ${{ matrix.node-version }})
+    needs:
+      - style
     runs-on: ubuntu-latest
     environment: ci
     strategy:
@@ -27,6 +95,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+          ref: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.ref || github.ref_name }}
+          repository: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name || github.repository }}
 
       - name: Setup pnpm
         uses: pnpm/action-setup@v5
@@ -41,9 +113,6 @@ jobs:
 
       - name: Install dependencies
         run: pnpm install --no-frozen-lockfile
-
-      - name: Lint
-        run: pnpm run lint
 
       - name: Typecheck
         run: pnpm run typecheck

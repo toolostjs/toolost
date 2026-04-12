@@ -43,7 +43,6 @@ jobs:
 
       - name: Verify project quality
         run: |
-          pnpm run lint
           pnpm run typecheck
           pnpm run test
           pnpm run build
