@@ -1,0 +1,27 @@
+{
+  "name": "toolost",
+  "version": "0.0.1",
+  "description": "Community-baked JavaScript/TypeScript SDK for the Too Lost API.",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["toolost", "toolost api", "music distribution", "sdk"],
+  "authors": [
+    "ByJonas <www.byjonas.dev>",
+    "TooLostJS Contributors <https://github.com/toolostjs/toolost/graphs/contributors>"
+  ],
+  "files": [
+    "dist",
+    "LICENSE",
+    "README.md"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/toolostjs/toolost.git"
+  },
+  "bugs": {
+    "url": "https://github.com/toolostjs/toolost/issues"
+  }
+}
