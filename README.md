@@ -1,6 +1,11 @@
-# toolost
-
-Community-baked JavaScript/TypeScript SDK for the Too Lost Developer API.
+<div align="center">
+  <img src="https://raw.githubusercontent.com/toolostjs/toolost/main/assets/toolost-sdk-logo.svg" alt="toolost sdk logo" width="120" />
+  <h1>toolost</h1>
+  <p>Community-baked JavaScript/TypeScript SDK for the Too Lost Developer API.</p>
+  <a href="https://www.npmjs.com/package/toolost"><img src="https://img.shields.io/npm/v/toolost?style=for-the-badge&color=000000" alt="npm version" /></a>
+  <a href="https://www.npmjs.com/package/toolost"><img src="https://img.shields.io/npm/dm/toolost?style=for-the-badge&color=000000" alt="npm downloads" /></a>
+  <a href="https://github.com/toolostjs/toolost"><img src="https://img.shields.io/github/stars/toolostjs/toolost?style=for-the-badge&color=000000" alt="GitHub stars" /></a>
+</div>
 
 ## Installation
 
@@ -16,15 +21,7 @@ bun add toolost
 
 ## Documentation
 
-Full SDK documentation is available in [`docs/README.md`](./docs/README.md), including:
-
-- Getting started and architecture
-- Full client/OAuth/manager references
-- Endpoint matrix and type system details
-- Events/errors/retry behavior
-- Testing quality notes and roadmap
-
-We are currently working on bringing our documentation on a dedicated website for better readability and navigation. In the meantime, please refer to the markdown docs.
+For full documentation, see the [SDK Documentation](https://toolost.js.org). This README provides a quick overview and examples to get you started. For detailed API reference, guides, and advanced usage, please refer to the SDK documentation.
 
 ## Quick Start
 

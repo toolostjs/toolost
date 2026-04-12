@@ -1,6 +1,6 @@
 {
   "name": "toolost",
-  "version": "1.0.1",
+  "version": "1.0.0",
   "description": "Community-baked JavaScript/TypeScript SDK for the Too Lost API.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
