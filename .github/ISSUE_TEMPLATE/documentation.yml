@@ -1,0 +1,37 @@
+name: Documentation improvement
+description: Suggest additions, corrections, or clarifications to docs.
+title: "[Docs]: "
+labels:
+  - documentation
+  - triage
+body:
+  - type: textarea
+    id: location
+    attributes:
+      label: Location
+      description: Which file/page/section should be updated?
+      placeholder: docs/getting-started.md section "OAuth Quick Start"
+    validations:
+      required: true
+
+  - type: textarea
+    id: issue
+    attributes:
+      label: What is unclear or incorrect?
+      placeholder: The example uses ... which no longer matches ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: suggested
+    attributes:
+      label: Suggested wording or structure
+      description: Proposed replacement text is welcome.
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Checklist
+      options:
+        - label: I reviewed the current docs before filing this issue.
+          required: true

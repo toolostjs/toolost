@@ -1,12 +1,23 @@
 {
   "name": "toolost",
-  "version": "0.0.1",
+  "version": "1.0.1",
   "description": "Community-baked JavaScript/TypeScript SDK for the Too Lost API.",
   "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run",
+    "lint": "prettier --check .",
+    "format": "prettier --write .",
+    "prepublishOnly": "pnpm run build && pnpm run typecheck && pnpm run lint"
   },
-  "keywords": ["toolost", "toolost api", "music distribution", "sdk"],
+  "keywords": [
+    "toolost",
+    "toolost api",
+    "music distribution",
+    "sdk"
+  ],
   "authors": [
     "ByJonas <www.byjonas.dev>",
     "TooLostJS Contributors <https://github.com/toolostjs/toolost/graphs/contributors>"
@@ -23,5 +34,11 @@
   },
   "bugs": {
     "url": "https://github.com/toolostjs/toolost/issues"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.3",
+    "prettier": "^3.8.2",
+    "typescript": "^5.8.3",
+    "vitest": "^3.2.4"
   }
 }
