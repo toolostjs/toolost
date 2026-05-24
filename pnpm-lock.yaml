@@ -17,6 +17,7 @@ importers:
         specifier: ^6.0.2
         version: 6.0.3
       vitest:
+        specifier: ^4.1.4
         version: 4.1.7(@types/node@25.9.1)(vite@7.3.2(@types/node@25.9.1))
 
 packages:
@@ -315,6 +316,7 @@ packages:
       }
     cpu: [arm]
     os: [linux]
+    libc: [glibc]
 
   "@rollup/rollup-linux-arm-musleabihf@4.60.4":
     resolution:
@@ -323,6 +325,7 @@ packages:
       }
     cpu: [arm]
     os: [linux]
+    libc: [musl]
 
   "@rollup/rollup-linux-arm64-gnu@4.60.4":
     resolution:
@@ -331,6 +334,7 @@ packages:
       }
     cpu: [arm64]
     os: [linux]
+    libc: [glibc]
 
   "@rollup/rollup-linux-arm64-musl@4.60.4":
     resolution:
@@ -339,6 +343,7 @@ packages:
       }
     cpu: [arm64]
     os: [linux]
+    libc: [musl]
 
   "@rollup/rollup-linux-loong64-gnu@4.60.4":
     resolution:
@@ -347,6 +352,7 @@ packages:
       }
     cpu: [loong64]
     os: [linux]
+    libc: [glibc]
 
   "@rollup/rollup-linux-loong64-musl@4.60.4":
     resolution:
@@ -355,6 +361,7 @@ packages:
       }
     cpu: [loong64]
     os: [linux]
+    libc: [musl]
 
   "@rollup/rollup-linux-ppc64-gnu@4.60.4":
     resolution:
@@ -363,6 +370,7 @@ packages:
       }
     cpu: [ppc64]
     os: [linux]
+    libc: [glibc]
 
   "@rollup/rollup-linux-ppc64-musl@4.60.4":
     resolution:
@@ -371,6 +379,7 @@ packages:
       }
     cpu: [ppc64]
     os: [linux]
+    libc: [musl]
 
   "@rollup/rollup-linux-riscv64-gnu@4.60.4":
     resolution:
@@ -379,6 +388,7 @@ packages:
       }
     cpu: [riscv64]
     os: [linux]
+    libc: [glibc]
 
   "@rollup/rollup-linux-riscv64-musl@4.60.4":
     resolution:
@@ -387,6 +397,7 @@ packages:
       }
     cpu: [riscv64]
     os: [linux]
+    libc: [musl]
 
   "@rollup/rollup-linux-s390x-gnu@4.60.4":
     resolution:
@@ -395,6 +406,7 @@ packages:
       }
     cpu: [s390x]
     os: [linux]
+    libc: [glibc]
 
   "@rollup/rollup-linux-x64-gnu@4.60.4":
     resolution:
@@ -403,6 +415,7 @@ packages:
       }
     cpu: [x64]
     os: [linux]
+    libc: [glibc]
 
   "@rollup/rollup-linux-x64-musl@4.60.4":
     resolution:
@@ -411,6 +424,7 @@ packages:
       }
     cpu: [x64]
     os: [linux]
+    libc: [musl]
 
   "@rollup/rollup-openbsd-x64@4.60.4":
     resolution:
