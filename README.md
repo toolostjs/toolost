@@ -1,13 +1,13 @@
-<div align="center">
-  <img src="https://raw.githubusercontent.com/toolostjs/toolost/main/assets/toolost-sdk-logo.svg" alt="toolost sdk logo" width="120" />
+  <div align="center">
+   <img src="https://raw.githubusercontent.com/toolostjs/toolost/main/assets/toolost-sdk-logo.svg" alt="toolost sdk logo" width="120" />
   <h1>toolost</h1>
   <p>Community-baked JavaScript/TypeScript SDK for the Too Lost Developer API.</p>
-  <a href="https://www.npmjs.com/package/toolost"><img src="https://img.shields.io/npm/v/toolost?style=for-the-badge&color=000000" alt="npm version" /></a>
+   <a href="https://www.npmjs.com/package/toolost"><img src="https://img.shields.io/npm/v/toolost?style=for-the-badge&color=000000" alt="npm version" /></a>
   <a href="https://www.npmjs.com/package/toolost"><img src="https://img.shields.io/npm/dm/toolost?style=for-the-badge&color=000000" alt="npm downloads" /></a>
-  <a href="https://github.com/toolostjs/toolost"><img src="https://img.shields.io/github/stars/toolostjs/toolost?style=for-the-badge&color=000000" alt="GitHub stars" /></a>
+   <a href="https://github.com/toolostjs/toolost"><img src="https://img.shields.io/github/stars/toolostjs/toolost?style=for-the-badge&color=000000" alt="GitHub stars" /></a>
 </div>
 
-## Installation
+  ## Installation
 
 ```bash
 npm install toolost
