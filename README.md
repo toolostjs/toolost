@@ -7,7 +7,7 @@
    <a href="https://github.com/toolostjs/toolost"><img src="https://img.shields.io/github/stars/toolostjs/toolost?style=for-the-badge&color=000000" alt="GitHub stars" /></a>
 </div>
 
-  ## Installation
+## Installation
 
 ```bash
 npm install toolost
