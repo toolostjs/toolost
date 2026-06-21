@@ -37,7 +37,7 @@
     "url": "https://github.com/toolostjs/toolost/issues"
   },
   "devDependencies": {
-    "@types/node": "^25.9.3",
+    "@types/node": "^26.0.0",
     "prettier": "^3.8.4",
     "typescript": "^6.0.3",
     "vitest": "^4.1.8"
