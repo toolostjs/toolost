@@ -1,19 +1,10 @@
 /** Supported release statuses from the API reference. */
 export type ReleaseStatus =
-  | "draft"
-  | "in_review"
-  | "live"
-  | "takedown_pending"
-  | "takedown_complete";
+  "draft" | "in_review" | "live" | "takedown_pending" | "takedown_complete";
 
 /** Supported release types from the API reference. */
 export type ReleaseType =
-  | "Single"
-  | "EP"
-  | "Album"
-  | "Compilation"
-  | "MusicVideo"
-  | "Music Video";
+  "Single" | "EP" | "Album" | "Compilation" | "MusicVideo" | "Music Video";
 
 /** Track file kinds supported by upload/update endpoints. */
 export type TrackFileKind = "audio" | "instrumental" | "dolby";

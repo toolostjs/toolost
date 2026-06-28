@@ -13,8 +13,8 @@ export class TypedEventEmitter<TEventMap extends Record<string, unknown>> {
   ): this {
     const eventListeners =
       (this.listeners[event] as
-        | Set<(payload: TEventMap[K]) => void>
-        | undefined) ?? new Set<(payload: TEventMap[K]) => void>();
+        Set<(payload: TEventMap[K]) => void> | undefined) ??
+      new Set<(payload: TEventMap[K]) => void>();
 
     eventListeners.add(listener);
     this.listeners[event] = eventListeners as Set<
@@ -43,8 +43,7 @@ export class TypedEventEmitter<TEventMap extends Record<string, unknown>> {
     listener: (payload: TEventMap[K]) => void,
   ): this {
     const eventListeners = this.listeners[event] as
-      | Set<(payload: TEventMap[K]) => void>
-      | undefined;
+      Set<(payload: TEventMap[K]) => void> | undefined;
     eventListeners?.delete(listener);
     return this;
   }
@@ -55,8 +54,7 @@ export class TypedEventEmitter<TEventMap extends Record<string, unknown>> {
     payload: TEventMap[K],
   ): boolean {
     const eventListeners = this.listeners[event] as
-      | Set<(payload: TEventMap[K]) => void>
-      | undefined;
+      Set<(payload: TEventMap[K]) => void> | undefined;
 
     if (!eventListeners || eventListeners.size === 0) {
       return false;

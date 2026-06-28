@@ -35,12 +35,7 @@ export type EntityId = string | number;
 
 /** JSON primitive/object helper type for extensible payload sections. */
 export type JSONValue =
-  | string
-  | number
-  | boolean
-  | null
-  | JSONObject
-  | JSONArray;
+  string | number | boolean | null | JSONObject | JSONArray;
 
 /** JSON object helper type for extensible payload sections. */
 export interface JSONObject {
