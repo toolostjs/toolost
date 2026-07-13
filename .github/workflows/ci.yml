@@ -75,7 +75,7 @@ jobs:
           body: |
             ## 🎨 Automated Prettier Formatting
 
-            This pull request was created automatically by **Stoneclane Studios CI**.
+            This pull request was created automatically by **CI**.
 
             ### Changes
             - Applied Prettier formatting
